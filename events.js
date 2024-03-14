@@ -44,3 +44,8 @@ server.on("request", (req, res) => {
 server.on("close", () => {
   console.log("server closed");
 });
+
+//start the server
+server.listen(8000, "localhost", () => {
+  console.log("Waiting for request...");
+});
