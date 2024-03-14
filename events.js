@@ -10,5 +10,10 @@ myEmitter.on("newSale", () => {
 myEmitter.on("newSale", () => {
   console.log("customer name: Tomasz");
 });
+
+myEmitter.on("newSale", (stock) => {
+  console.log(`There are now ${stock} items left in stock`);
+});
+
 //observer pattern
-myEmitter.emit("newSale");
+myEmitter.emit("newSale", 9);
