@@ -2,7 +2,7 @@ const fs = require("fs");
 const server = require("http").createServer();
 
 server.on("request", (req, res) => {
-  //Solution 1
+  //Solution 1 - no stream just sending the whole chunk of data which will crash the app
   // fs.readFile("test-file.txt", (err, data) => {
   //   if (err) console.log(err);
   //   res.end(data);
@@ -10,7 +10,7 @@ server.on("request", (req, res) => {
   //Solution 2 - streams
   const readable = fs.createReadStream("test-file.txt"); //that will produce chunks of data that are ready to consume and the stream emits then data event. So we can attach our listener on readable to listen to that event.
   readable.on("data", (chunk) => {
-    res.write(chunk); //res is a writteable stream and so we can stream the content right to the client using the cb function from the .on listener
+    res.write(chunk); //res is a writteable stream and so we can stream the content right to the client using the cb function from the .on listener. The res comes from the stram functonality.
   });
 });
 
