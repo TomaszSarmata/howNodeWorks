@@ -32,3 +32,15 @@ myEmitter.emit("newSale", 9);
 //create a small web server to listen to the event that it emits
 
 const server = http.createServer();
+
+server.on("request", (req, res) => {
+  console.log("Request received");
+  res.end("request received");
+});
+server.on("request", (req, res) => {
+  res.end("another request 😌");
+});
+
+server.on("close", () => {
+  console.log("server closed");
+});
