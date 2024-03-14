@@ -15,6 +15,11 @@ server.on("request", (req, res) => {
   readable.on("end", () => {
     res.end(); //that signals that no moro data will be written into the stream
   });
+  readable.on("error", (err) => {
+    console.log(err);
+    res.status(500);
+    res.end("File not found");
+  });
 });
 
 server.listen(8000, "localhost", () => {
