@@ -25,3 +25,7 @@ myEmitter.on("newSale", (stock) => {
 
 //observer pattern
 myEmitter.emit("newSale", 9);
+
+//////////////////////////////
+
+//create a small web server to listen to the event that it emits
