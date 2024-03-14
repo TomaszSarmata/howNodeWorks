@@ -1,4 +1,5 @@
 const EventEmitter = require("events");
+const http = require("http");
 
 //setting up a new class that will inherit from the emiter class
 
@@ -29,3 +30,5 @@ myEmitter.emit("newSale", 9);
 //////////////////////////////
 
 //create a small web server to listen to the event that it emits
+
+const server = http.createServer();
