@@ -2,7 +2,7 @@ const EventEmitter = require("events");
 
 const myEmitter = new EventEmitter();
 
-//setting up listeners
+//setting up listeners / observers
 myEmitter.on("newSale", () => {
   console.log("there was a new sale");
 });
@@ -10,5 +10,5 @@ myEmitter.on("newSale", () => {
 myEmitter.on("newSale", () => {
   console.log("customer name: Tomasz");
 });
-
+//observer pattern
 myEmitter.emit("newSale");
