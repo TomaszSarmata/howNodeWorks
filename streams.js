@@ -12,6 +12,9 @@ server.on("request", (req, res) => {
   readable.on("data", (chunk) => {
     res.write(chunk); //res is a writteable stream and so we can stream the content right to the client using the cb function from the .on listener. The res comes from the stram functonality.
   });
+  readable.on("end", () => {
+    res.end(); //that signals that no moro data will be written into the stream
+  });
 });
 
 server.listen(8000, "localhost", () => {
