@@ -1,6 +1,14 @@
 const EventEmitter = require("events");
 
-const myEmitter = new EventEmitter();
+//setting up a new class that will inherit from the emiter class
+
+class Sales extends EventEmitter {
+  constructor() {
+    super();
+  }
+}
+
+const myEmitter = new Sales();
 
 //setting up listeners / observers
 myEmitter.on("newSale", () => {
